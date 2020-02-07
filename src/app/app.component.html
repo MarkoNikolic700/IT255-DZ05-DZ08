@@ -1,0 +1,32 @@
+<div id="left">
+  <app-dodaj-hotel (onButtonAddPressed)='dodajHotel($event)'></app-dodaj-hotel>
+
+  <div class="ui grid posts" >
+
+  <div class="ui left aligned basic segment" style="padding-left: 50px;">
+    <div class="ui left icon action input">
+      <i class="search icon"></i>
+      <input name="priceMax" placeholder="Set max price" (keyup)="filter($event)">
+      <input name="numOfNights" placeholder="Nights" (keyup)="izracunajRoomServis($event)">
+      <div class="ui blue submit button" >Search</div>
+
+    </div>
+    <h3>Cena Room Servisa : {{ cenaRoomServisa }} $</h3>
+  </div>
+
+
+
+  <app-hotel *ngFor="let hotel of prikazivanje" [hotel]="hotel" (brisi)='brisiHotel($event)'>
+  </app-hotel>
+
+  <button (click)="randomize()" class="ui blue right floated button" style="margin-left: 50px;">
+    Prikazi random
+  </button>
+
+</div>
+</div>
+<div id="right">
+<div><a class="item">
+  <img src="../assets/img/Logo.png" alt="Hotel Logo" id="img"></a>
+</div>
+</div>
